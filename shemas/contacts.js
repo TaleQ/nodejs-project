@@ -1,10 +1,12 @@
 const Joi = require('joi');
 
 const schema = Joi.object({
-  name: Joi.string().alphanum().min(1).max(40).required(),
-  email: Joi.string().email({ minDomainSegments: 2 }).required(),
+  name: Joi.string().min(1).max(40).required(),
+  email: Joi.string().email().required(),
   phone: Joi.string()
-    .pattern(/^\+?[0-9]{6,12}$/)
+    .min(6)
+    .max(15)
+    .pattern(/^\+?[0-9]{5,15}$/)
     .required(),
 });
 
