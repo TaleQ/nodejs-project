@@ -2,7 +2,7 @@ const contacts = require('../models/contacts');
 
 const { HttpError, ctrlWrapper } = require('../utils');
 
-const listContacts = async (req, res) => {
+const listContacts = async (_req, res) => {
   const result = await contacts.listContacts();
   res.status(200).json(result);
 };
