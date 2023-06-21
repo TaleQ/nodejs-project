@@ -1,7 +1,9 @@
 {
   "name": "template",
   "version": "0.0.0",
-  "engine": ">=14.20.1",
+  "engines": {
+    "node": ">17 <19"
+  },
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=production node ./server.js",
