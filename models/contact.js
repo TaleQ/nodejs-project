@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const { handleMongooseError } = require('../utils');
+const { regExps } = require('../constants');
 
 const contactSchema = new Schema(
   {
@@ -9,9 +10,11 @@ const contactSchema = new Schema(
     },
     email: {
       type: String,
+      match: regExps.emailRegExp,
     },
     phone: {
       type: String,
+      match: regExps.phoneRegExp,
     },
     favorite: {
       type: Boolean,

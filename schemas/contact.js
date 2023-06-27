@@ -1,13 +1,10 @@
 const Joi = require('joi');
+const { regExps } = require('../constants');
 
 const bodySchema = Joi.object({
   name: Joi.string().min(1).max(40).required(),
-  email: Joi.string().email().required(),
-  phone: Joi.string()
-    .min(6)
-    .max(15)
-    .pattern(/^\(\d{3}\) \d{3}-\d{4}$/)
-    .required(),
+  email: Joi.string().email(regExps.emailRegExp).required(),
+  phone: Joi.string().min(13).max(15).pattern(regExps.phoneRegExp).required(),
   favorite: Joi.boolean(),
 });
 
