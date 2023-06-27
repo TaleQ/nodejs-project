@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { regExps } = require('../constants');
+const { regExps } = require('../../constants');
 
 const bodySchema = Joi.object({
   name: Joi.string().min(1).max(40).required(),
@@ -8,10 +8,4 @@ const bodySchema = Joi.object({
   favorite: Joi.boolean(),
 });
 
-const favoriteSchema = Joi.object({
-  favorite: Joi.boolean().required(),
-});
-
-const schemas = { bodySchema, favoriteSchema };
-
-module.exports = schemas;
+module.exports = bodySchema;
