@@ -17,6 +17,12 @@ router.route('/logout').post(authenticate, authCtrl.logout);
 
 router.route('/current').get(authenticate, authCtrl.getCurrent);
 
-// router.route('/').patch(authenticate, authCtrl.getCurrent);
+router
+  .route('/subscription')
+  .patch(
+    authenticate,
+    validateBody(userSchemas.subscriptionSchema),
+    authCtrl.changeSubscription
+  );
 
 module.exports = router;
