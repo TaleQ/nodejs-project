@@ -6,7 +6,6 @@ const userSchema = new Schema(
   {
     password: {
       type: String,
-      match: regExps.passwordRegExp,
       required: [true, 'Set password for user'],
     },
     email: {
