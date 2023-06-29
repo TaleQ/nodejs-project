@@ -1,14 +1,7 @@
 const { userModel } = require('../../models');
-const { HttpError } = require('../../utils');
+const { HttpError, resizeImage } = require('../../utils');
 const path = require('path');
 const fs = require('fs/promises');
-const jimp = require('jimp');
-
-const resizeImage = async (imagePath, width, height) => {
-  const image = await jimp.read(imagePath);
-  await image.resize(width, height);
-  await image.writeAsync(imagePath);
-};
 
 const changeAvatar = async (req, res) => {
   const { _id } = req.user;
