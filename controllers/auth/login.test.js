@@ -30,7 +30,7 @@ describe('test login controller', () => {
     expect(response.body).toHaveProperty('token');
   });
 
-  it('response contains user object with email and subscription fields', async () => {
+  it('response contains user object with email and subscription fields with String data type', async () => {
     const response = await request(app).post('/api/users/login').send(testUser);
 
     expect(response.body.user).toHaveProperty('email');
