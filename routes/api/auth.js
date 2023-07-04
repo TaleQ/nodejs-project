@@ -9,6 +9,12 @@ router
   .route('/register')
   .post(validateBody(userSchemas.registerSchema), authCtrl.register);
 
+router.route('/verify/:verificationToken').get(authCtrl.verifyEmail);
+
+router
+  .route('/verify')
+  .post(validateBody(userSchemas.emailSchema), authCtrl.resendVerifyEmail);
+
 router
   .route('/login')
   .post(validateBody(userSchemas.loginSchema), authCtrl.login);
